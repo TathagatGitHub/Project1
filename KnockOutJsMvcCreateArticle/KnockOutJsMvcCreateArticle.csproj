@@ -209,6 +209,7 @@
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Extensions\SitexWrapper.cs" />
     <Compile Include="Models\AuthorProfile.cs" />
     <Compile Include="Models\Property.cs" />
     <Compile Include="Models\viewModelBookAuthor.cs" />
@@ -229,6 +230,11 @@
     <Compile Include="Models\QueryOptions.cs" />
     <Compile Include="Models\Weather.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\SitexSoapReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\StockQuoteService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -347,6 +353,25 @@
     <Content Include="Scripts\ViewModel\ArticleRegistrationVM.js" />
     <Content Include="Scripts\ViewModel\CreateVM.js" />
     <Content Include="Scripts\ViewModel\IndexVM.js" />
+    <Content Include="Service References\SitexSoapReference\KnockOutJsMvcCreateArticle.SitexSoapReference.LienAlertResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SitexSoapReference\KnockOutJsMvcCreateArticle.SitexSoapReference.SitexApiAvailableCreditResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SitexSoapReference\KnockOutJsMvcCreateArticle.SitexSoapReference.SitexApiFarmXmlCountResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SitexSoapReference\KnockOutJsMvcCreateArticle.SitexSoapReference.SitexApiFarmXmlResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SitexSoapReference\KnockOutJsMvcCreateArticle.SitexSoapReference.SitexApiResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SitexSoapReference\KnockOutJsMvcCreateArticle.SitexSoapReference.SitexApiResultWithOwner.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SitexSoapReference\sitexapi.wsdl" />
     <None Include="Service References\StockQuoteService\stockquote.wsdl" />
     <None Include="Service References\TempConvertReference\configuration91.svcinfo" />
     <None Include="Service References\TempConvertReference\configuration.svcinfo" />
@@ -362,6 +387,13 @@
     </None>
     <Content Include="Scripts\ViewModel\vmBooksandAuthors - mapping.js" />
     <Content Include="Scripts\ViewModel\vmBooksandAuthors.js" />
+    <None Include="Service References\SitexSoapReference\sitexapi.disco" />
+    <None Include="Service References\SitexSoapReference\configuration91.svcinfo" />
+    <None Include="Service References\SitexSoapReference\configuration.svcinfo" />
+    <None Include="Service References\SitexSoapReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Views\Article\_iFBinding.ascx" />
     <Content Include="Views\Article\_ProductView.ascx" />
     <Content Include="Web.config">
@@ -483,6 +515,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SitexSoapReference\" />
     <WCFMetadataStorage Include="Service References\StockQuoteService\" />
     <WCFMetadataStorage Include="Service References\TempConvertReference\" />
   </ItemGroup>

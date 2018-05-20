@@ -10,6 +10,7 @@ using System.Data;
 using KnockOutJsMvcCreateArticle.Models;
 using KnockOutJsMvcCreateArticle.Extensions;
 using KnockOutJsMvcCreateArticle.Utility;
+using KnockOutJsMvcCreateArticle.SitexSoapReference;
 using System.Web.Security;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -328,19 +329,18 @@ public async System.Threading.Tasks.Task<ActionResult> HttpClientMethodAPNSearch
                 List<Property> listProperty = new List<Property>();
         using (System.Net.Http.HttpResponseMessage Res = await client.PostAsJsonAsync(url, obj))
         {
-                    var data = await Res.Content.ReadAsAsync<ResponseData>();
+             var data = await Res.Content.ReadAsAsync<ResponseData>();
 
-                    if (Res.IsSuccessStatusCode)
-            {
-                        
-                        int count= data.ResponseItem.Count();
+             if (Res.IsSuccessStatusCode)
+             {
+                int count= data.ResponseItem.Count();
                         for (int i = 0; i < count; i++)
                         {
                             String address = data.ResponseItem[i].Address;
                             String ZIP = data.ResponseItem[i].Zip;
                             String APN = data.ResponseItem[i].APN;
                             listProperty.Add(data.ResponseItem[i]);
-                        }
+                        } 
              }
             //returning the employee list to view  
             return View("~/Views/Property/Index.cshtml", listProperty);
