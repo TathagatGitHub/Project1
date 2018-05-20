@@ -9,8 +9,7 @@ using System.IO;
 
 namespace KnockOutJsMvcCreateArticle.Extensions
 {
-    public class SitexWrapper
-    {
+    
         public class SitexMethods
         {
             string serviceKey = "98B609B5-5483-40B5-8FD4-B4D9993DD8A4";
@@ -41,7 +40,7 @@ namespace KnockOutJsMvcCreateArticle.Extensions
             /// <param name="fips"></param>
             /// <param name="apn"></param>
             /// <returns></returns>
-            public string TestAVM(string fips, string apn)
+            public string GetAVMProfilePath(string fips, string apn)
             {
                 string response = string.Empty;
                 SitexSoapReference.SitexAPISoapClient srv = SiteServiceClient(SitexEndPointUrl);
@@ -82,11 +81,11 @@ namespace KnockOutJsMvcCreateArticle.Extensions
                 Debug.Write(Environment.NewLine + Environment.NewLine + $"File written to:{path} ");
                 Console.WriteLine(Environment.NewLine + Environment.NewLine + $"File written to:{path} ");
 
-                return response;
+                return path;
             }
 
             
 
         }
-    }
+    
 }

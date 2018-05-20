@@ -19,6 +19,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Dynamic;
+using System.Web.Configuration;
 //using System.Web.Helpers;
 public static class JsonExtensions
 {
@@ -307,8 +308,8 @@ public async System.Threading.Tasks.Task<ActionResult> HttpClientMethodAPNSearch
                 + "Data:    {"
                 + "ReportId: 85,"
                 + "ReportOptions:       {"
-                + "Address1: '21825 belshire ave',"
-                + "City: 'hawaiian garden',"
+                + "Address1: '7187 Santa Lucia Cir',"
+                + "City: 'Buena Park',"
                 + "State: 'CA',"
                 + "Zip: '',"
                 + "ClientReference:'' "
@@ -333,12 +334,17 @@ public async System.Threading.Tasks.Task<ActionResult> HttpClientMethodAPNSearch
 
              if (Res.IsSuccessStatusCode)
              {
-                int count= data.ResponseItem.Count();
+                        string endPointUrl = WebConfigurationManager.AppSettings["SiteXRCWebServiceURL"];
+                        SitexMethods sitexMethodsInstance= new SitexMethods(endPointUrl);
+                        int count= data.ResponseItem.Count();
                         for (int i = 0; i < count; i++)
                         {
                             String address = data.ResponseItem[i].Address;
                             String ZIP = data.ResponseItem[i].Zip;
                             String APN = data.ResponseItem[i].APN;
+                            String FIPS = "06059";
+                            String AVMProfilePath = sitexMethodsInstance.GetAVMProfilePath(FIPS,APN);
+                            data.ResponseItem[i].ProfilePath = AVMProfilePath;
                             listProperty.Add(data.ResponseItem[i]);
                         } 
              }

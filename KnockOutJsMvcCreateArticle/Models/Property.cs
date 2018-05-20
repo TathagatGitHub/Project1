@@ -11,6 +11,7 @@ namespace KnockOutJsMvcCreateArticle.Models
             public string Address { get; set; }
             public string APN { get; set; }
             public string Zip { get; set; }
+            public string ProfilePath { get; set; }
         
     }
 }
