@@ -6,6 +6,7 @@ using KnockOutJsMvcCreateArticle.SitexSoapReference;
 using System.Net;
 using System.Diagnostics;
 using System.IO;
+using System.Web.Configuration;
 
 namespace KnockOutJsMvcCreateArticle.Extensions
 {
@@ -73,8 +74,10 @@ namespace KnockOutJsMvcCreateArticle.Extensions
                     response = Environment.NewLine + Environment.NewLine + "Found AVM";
                 }
 
-                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "GPS AVM Files", $@"{fips}-{apn}.xml");
-                if (Directory.Exists(Path.GetDirectoryName(path)) == false)
+            //string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "GPS AVM Files", $@"{fips}-{apn}.xml");
+              string path = Path.Combine(WebConfigurationManager.AppSettings["SavedXMLFilePath"], "GPS AVM Files", $@"{fips}-{apn}.xml");
+            
+            if (Directory.Exists(Path.GetDirectoryName(path)) == false)
                     Directory.CreateDirectory(Path.GetDirectoryName(path));
 
                 File.WriteAllText(path, doc.InnerXml);

@@ -66,7 +66,9 @@ namespace KnockOutJsMvcCreateArticle.Controllers
         public ActionResult xmlToHTML()
         {
             pdfConverter var = new pdfConverter();
-           String path = var.xmlToPdf(@"\Projects\KnockOutJsMvcCreateArticle\KnockOutJsMvcCreateArticle\Content\Files\XMLFile1.xml", @"\Projects\KnockOutJsMvcCreateArticle\KnockOutJsMvcCreateArticle\Content\Files\XSLTFile1.xslt");
+           String path = var.xmlToPdf(@"\Projects\KnockOutJsMvcCreateArticle\KnockOutJsMvcCreateArticle\Content\Files\XMLFile1.xml", 
+               @"\Projects\KnockOutJsMvcCreateArticle\KnockOutJsMvcCreateArticle\Content\Files\XSLTFile1.xslt",
+               WebConfigurationManager.AppSettings["SavedHTMLProfileFilePath"]);
                  return View();
         }
         [Authorize(Roles = "Admin")]

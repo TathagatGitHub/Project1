@@ -13,7 +13,7 @@ namespace KnockOutJsMvcCreateArticle.Utility
     {
 
         // Getting file path     
-    public String xmlToPdf(string xmlpath,string xslpath)
+        public String xmlToPdf(string xmlpath, string xslpath, string htmlPathtoSave)
         {
             //string strXSLTFile = "Content/Files/XSLTFile1.xslt";
             //string strXMLFile = "Content/Files/XMLFile1.xml";
@@ -24,9 +24,14 @@ namespace KnockOutJsMvcCreateArticle.Utility
             XslCompiledTransform objXSLTransform = new XslCompiledTransform();
             objXSLTransform.Load(strXSLTFile);
             // Execute the transform and output the results to a file.
-            objXSLTransform.Transform(strXMLFile, @"\Projects\KnockOutJsMvcCreateArticle\KnockOutJsMvcCreateArticle\Content\Files\XMLFile1.html");
-        string htmlfile ="Content/Files/XMLFile1.html";
-        return htmlfile;
+            //string htmlFilePath = HttpContext.Current.Server.MapPath("~/App_Data/SavedProfiles");//Path of the xml script  
+            string htmlfile = htmlPathtoSave + "XMLFile1.html";
+            
+                objXSLTransform.Transform(strXMLFile, htmlfile);
+            //objXSLTransform.Transform(strXMLFile, @"\Projects\KnockOutJsMvcCreateArticle\KnockOutJsMvcCreateArticle\Content\Files\XMLFile1.html");
+
+            return htmlfile;
+            
         }
         
     }
